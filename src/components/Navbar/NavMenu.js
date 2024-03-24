@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import logo from "../../images/Intersect.png";
-import searchIcon from "../../images/Vector.png";
-import downIcon from "../../images/chevron-down.png";
+import logo from "../../assets/Intersect.png";
+import searchIcon from "../../assets/Vector.png";
+import downIcon from "../../assets/chevron-down.png";
 import "./Nav.css";
 
 const NavMenu = ({ items }) => {
@@ -61,15 +61,12 @@ const NavMenu = ({ items }) => {
 
   return (
     <header className="header">
-      {/* Left */}
       <div className="left">
         <img src={logo} alt="#" />
         <span className="heading">E-COMM</span>
       </div>
 
-      {/* Center */}
       <ul className="center">
-        {/* Visible items */}
         {visibleItems.map((item, index) => (
           <li
             style={{ fontSize: "1rem" }}
@@ -80,7 +77,6 @@ const NavMenu = ({ items }) => {
           </li>
         ))}
 
-        {/* more section */}
         {hiddenItems.length > 0 && (
           <li
             style={{ fontSize: "1rem", display: "flex", alignItems: "center" }}
@@ -97,16 +93,7 @@ const NavMenu = ({ items }) => {
             </div>
             <ul
               style={{
-                position: "absolute",
-                top: "11vh",
-                right: "25vw",
-                backgroundColor: "#2F302C",
-                borderRadius: "8px",
-                listStyle: "none",
-                zIndex: "100",
-                paddingBottom: "0",
                 display: open ? "block" : "none",
-                cursor: "pointer",
               }}
               className="hidden_items_container"
             >
@@ -124,31 +111,9 @@ const NavMenu = ({ items }) => {
         )}
       </ul>
 
-      {/* Right */}
-      <div
-        style={{
-          borderBottom: "2px solid white",
-          color: "white",
-          flex: "2",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          padding: "0.5rem 0",
-        }}
-        className="right"
-      >
+      <div className="right">
         <img src={searchIcon} alt="#" />
-        <input
-          placeholder="Search Something"
-          style={{
-            background: "none",
-            outline: "none",
-            color: "white",
-            border: "none",
-            fontSize: "1rem",
-          }}
-          className="heavyPlaceholder"
-        />
+        <input placeholder="Search Something" className="heavyPlaceholder" />
       </div>
     </header>
   );

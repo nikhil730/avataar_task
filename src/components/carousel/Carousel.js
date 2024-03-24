@@ -43,22 +43,11 @@ const Carousel = ({ images, images_content }) => {
     <div style={{ gridRowStart: "4", gridRowEnd: "16", display: "grid" }}>
       {/* Images */}
       <div style={{ gridRowStart: "1", gridRowEnd: "5" }}>
-        <div
-          className="gallery-container"
-          // style={{
-          //   alignItems: "center",
-          //   display: "flex",
-          //   height: "100%",
-          //   margin: "0 auto",
-          //   width: "100%",
-          //   position: "relative",
-          //   overflow: "hidden",
-          // }}
-        >
+        <div className="carousel-container">
           {imgs.map((item, index) =>
             index + 1 == 3 ? (
               <img
-                className={`gallery-item gallery-item-${index + 1}`}
+                className={`carousel-item carousel-item-${index + 1}`}
                 src={item}
                 alt="#"
                 onMouseOver={OnHover}
@@ -66,14 +55,14 @@ const Carousel = ({ images, images_content }) => {
               />
             ) : (
               <img
-                className={`gallery-item gallery-item-${index + 1}`}
+                className={`carousel-item carousel-item-${index + 1}`}
                 src={item}
                 alt="#"
               />
             )
           )}
           <div
-            className={`${ishover ? "img_text" : "hide_text"}`}
+            className={`${ishover ? "hover_text" : "no_text"}`}
             onMouseOver={OnHover}
             onMouseOut={OffHover}
           >
@@ -83,16 +72,7 @@ const Carousel = ({ images, images_content }) => {
       </div>
 
       {/* Arrows */}
-      <div
-        className="gallery-controls"
-        // style={{
-        //   gridRowStart: "5",
-        //   gridRowEnd: "6",
-        //   display: "flex",
-        //   justifyContent: "center",
-        //   alignItems: "center",
-        // }}
-      >
+      <div className="carousel-controls">
         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           <img
             src={leftArrow}
@@ -109,6 +89,7 @@ const Carousel = ({ images, images_content }) => {
             ))}
           </div>
           <img
+            className="rightarrow"
             src={rightArrow}
             alt="#"
             onClick={Slideright}
